@@ -1,15 +1,24 @@
 {
   "expo": {
-    "name": "PI2",
-    "slug": "PI2",
+    "name": "Plenitude Pilates",
+    "slug": "my-app",
+    "owner": "thiagoraia",
     "version": "1.0.0",
+    "githubUrl": "https://github.com/ThiagoRaia1/Pi-5o-Semestre",
+    "icon": "./assets/appIcon.png",
+    "backgroundColor": "#ffffff",
+    "primaryColor": "#ffffff",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "androidStatusBar": {
+      "hidden": true
+    },
+    "androidNavigationBar": {
+      "visible": "immersive"
+    },
     "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
+      "image": "./assets/splashImage.png",
       "backgroundColor": "#ffffff"
     },
     "ios": {
@@ -17,13 +26,25 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.thiagoraia.myapp",
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/splashImage.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "ccbea3e2-ae98-450a-8fd0-ca103a7631f1"
+      }
     }
   }
 }
