@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useAuth } from "../context/auth";
-import { Link } from "expo-router";
 import Carregando from "./components/Carregando";
 
 export default function TelaLogin() {
@@ -19,64 +18,60 @@ export default function TelaLogin() {
   const [carregando, setCarregando] = useState(false);
 
   const login = async () => {
-    console.log("usuario: ", usuario.login)
-    console.log("senha: ", senha)
     setCarregando(true);
     try {
       await handleLogin(senha);
     } catch (erro: any) {
-      console.log("Erro: ", erro.message)
+      console.log("Erro: ", erro.message);
     } finally {
       setCarregando(false);
     }
   };
 
   return (
-    <>
-      <View style={styles.container}>
-        <Image
-          source={require("../assets/fundoLogin.jpeg")}
-          style={styles.backgroundImage}
-          resizeMode="stretch"
-        />
-        <View style={styles.content}>
-          <View style={styles.inputContainer}>
-            <Feather name="mail" size={20} color="black" style={styles.icon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              placeholderTextColor="#ccc"
-              onChangeText={(text) => setUsuario({ ...usuario, login: text })}
-              onSubmitEditing={login}
-            />
-          </View>
+    <View style={styles.container}>
+      <Image
+        source={require("../assets/fundoLogin.jpeg")}
+        style={styles.backgroundImage}
+        resizeMode="stretch"
+      />
+      <View style={styles.content}>
+        <View style={styles.inputContainer}>
+          <Feather name="mail" size={20} color="black" style={styles.icon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            placeholderTextColor="#ccc"
+            onChangeText={(text) => setUsuario({ ...usuario, login: text })}
+            onSubmitEditing={login}
+          />
+        </View>
 
-          <View style={styles.inputContainer}>
-            <Feather name="lock" size={20} color="black" style={styles.icon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Senha"
-              placeholderTextColor="#ccc"
-              secureTextEntry={!mostrarSenha}
-              onChangeText={(text) => setSenha(text)}
-              onSubmitEditing={login}
+        <View style={styles.inputContainer}>
+          <Feather name="lock" size={20} color="black" style={styles.icon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Senha"
+            placeholderTextColor="#ccc"
+            secureTextEntry={!mostrarSenha}
+            onChangeText={(text) => setSenha(text)}
+            onSubmitEditing={login}
+          />
+          <TouchableOpacity onPress={() => setMostrarSenha(!mostrarSenha)}>
+            <Feather
+              name={mostrarSenha ? "eye-off" : "eye"}
+              size={20}
+              color="black"
             />
-            <TouchableOpacity onPress={() => setMostrarSenha(!mostrarSenha)}>
-              <Feather
-                name={mostrarSenha ? "eye-off" : "eye"}
-                size={20}
-                color="black"
-              />
-            </TouchableOpacity>
-          </View>
-
-          <TouchableOpacity style={styles.button} onPress={login}>
-            <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
         </View>
+
+        <TouchableOpacity style={styles.button} onPress={login}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
       </View>
       {carregando && <Carregando />}
-    </>
+    </View>
   );
 }
 
