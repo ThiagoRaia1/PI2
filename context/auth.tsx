@@ -8,7 +8,7 @@ export interface IAluno {
   cpf: string;
   sexo: string;
   celular: string;
-  dataNascimento: Date;
+  dataNascimento: Date | null;
 }
 
 interface IAuthContext {
@@ -30,7 +30,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     cpf: "",
     sexo: "",
     celular: "",
-    dataNascimento: new Date(),
+    dataNascimento: null,
   });
 
   async function handleLogin(senha: string) {

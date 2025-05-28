@@ -44,14 +44,12 @@ export default function Inicio() {
               borderColor: "#ccc",
               height: 250,
               padding: 10,
-              justifyContent: "center",
             }}
           >
             <Text
               style={{
                 fontSize: 20,
                 marginBottom: 10,
-                marginTop: -35,
               }}
             >
               Sua próxima aula é:
@@ -66,7 +64,7 @@ export default function Inicio() {
                 borderWidth: 1,
                 borderColor: "#ccc",
                 width: "100%",
-                height: "50%",
+                height: "80%",
               }}
             >
               <Text
