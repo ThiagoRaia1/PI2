@@ -8,7 +8,7 @@ export default function MenuInferior() {
   return (
     <View style={styles.menu}>
 
-      <Link href={`./${nomePaginas.inicio}`}>
+      <Link href={`./${nomePaginas.inicio}`} asChild>
         <TouchableOpacity
           style={{ justifyContent: "center", alignItems: "center" }}
         >
@@ -17,7 +17,7 @@ export default function MenuInferior() {
         </TouchableOpacity>
       </Link>
 
-      <Link href={`./${nomePaginas.aulas}`}>
+      <Link href={`./${nomePaginas.aulas}`} asChild>
         <TouchableOpacity
           style={{ justifyContent: "center", alignItems: "center" }}
         >
@@ -26,7 +26,7 @@ export default function MenuInferior() {
         </TouchableOpacity>
       </Link>
 
-      <Link href={`./${nomePaginas.agendar}`}>
+      <Link href={`./${nomePaginas.agendar}`} asChild>
         <TouchableOpacity
           style={{ justifyContent: "center", alignItems: "center" }}
         >
@@ -35,7 +35,7 @@ export default function MenuInferior() {
         </TouchableOpacity>
       </Link>
 
-      <Link href={`./${nomePaginas.perfil}`}>
+      <Link href={`./${nomePaginas.perfil}`} asChild>
         <TouchableOpacity
           style={{ justifyContent: "center", alignItems: "center" }}
         >
